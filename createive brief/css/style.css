@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+/* CSS Document
+Name: Upgrade Techs
+Project: Mansfield Gardens Website Redesign
+Date: 03-06-2022
+Version: 1.0.0
+*/
+
+*, :before, :after {
+    box-sizing: border-box;
+}
+
+header {
+background-color:#808080;
+padding:10px;
+text-align:center;
+}
+
+.wrapper{
+margin: 25px;
+background-color:#F5F5F5;
+}
+
+#wrap{
+width: 75%;
+margin: auto;
+}
+
+.wrapper1 {
+width: 100%;
+background-color:#F5F5F5;
+}
+
+.wrap1 {
+width: 95%;
+margin:auto;
+}
+
+h1{
+color:rgb(28,64,108);
+font-size: 40px;
+text-align:left;
+padding:8px;
+}
+
+table {
+  font-family: georgia, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background-color:#F5F5F5;
+}
+
+td {
+  border: 1px solid #000;
+  text-align: left;
+  padding: 10px;
+ }
+
+th {
+  border: 1px solid #000;
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(odd) {
+  background-color: #D3D3D3;
+}
+
+.top {
+vertical-align: top;
+}
+
+h2 {
+color:rgb(224,117,49);
+}
+
+footer {
+background-color:#808080;
+padding:10px;
+text-align:center;
+}

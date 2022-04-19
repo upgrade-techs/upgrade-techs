@@ -1,4 +1,4 @@
-- 👋 Hi, We're @upgrade-techs
+- 👋 Hi, im derek
 - 👀 We are interested in developing the Mansfield Gardens website for CTEC 3350 Web Communication Design and Development @ The University of Texas Arlington
 - 🌱 Currently learning HTML, CSS, Flexbox, Grid System, Typography, Design, Theory, Color, Branding, Javascript, etc. 
 - 💞️ Looking to collaborate on the final project and develop our components and wireframes into a beautifully crafted website fully WCAG 2 compliant.

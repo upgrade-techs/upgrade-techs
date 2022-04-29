@@ -1,0 +1,502 @@
+/*
+  Name: Develop Components
+  Developer: Upgrade Techs
+  Date: 03/27/2022
+  Description: CSS Style Sheet for Develop Components
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/brands.min.css');
+
+*, :before, :after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0.5rem;
+	position: relative;
+}
+
+img {
+    width: 100%;
+}
+
+.header {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: flex-start;
+	align-content: flex-start;
+	margin-top: 2em;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 1em;
+	font-family: arial;
+}
+
+h2 {
+	text-align: center;
+	margin-top: 1em;
+	font-family: helvetica;
+}
+
+/* SLIDESHOW COMPONENT */
+
+.slideshow-wrapper {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	padding: 30px;
+	background-size: cover;
+}
+
+.slideshow {
+	flex: 0 0 100%;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
+	padding-top: 50vh;
+}
+
+.slideshow img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	object-fit: cover;
+	object-position: center;
+}
+
+.slideshow .slider {
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+}
+
+button {
+	border-radius: 5px;
+	padding: 11px;
+	background-color: transparent;
+	border: 1px solid hsl(0,0%,0%);
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: hsl(0,0%,25%);
+    border: 1px solid hsl(0,0%,25%);
+}
+
+.circle-wrapper {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content:center;
+	align-content: center;
+	align-items: center;
+	margin: 0.25rem 0;
+	width: 100%;
+}
+
+.fa-circle {
+	font-size: 1rem;
+	color: hsl(0,0%,75%);
+	height: 15px;
+	width: 15px;
+	margin: 0 0.5rem -3rem;
+	cursor: pointer;
+}
+
+.fa-circle:hover {
+	color: hsl(0,0%,25%);
+}
+
+.fa-angle-right {
+	font-size:24px;
+	color: hsl(0,0%,0%);
+}
+
+.fa-angle-left {
+	font-size:24px;
+	color: hsl(0,0%,0%);
+}
+
+/* END OF SLIDESHOW COMPONENT */
+
+/* PRODUCT COMPONENT */
+
+.product-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+	padding: 30px;
+}
+
+.product {
+    flex: 0 0 30%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.product .product-description {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+	padding: 20px;
+}
+
+.product .product-description h3 {
+    color: hsl(229,45%,36%);
+	text-align: center;
+    font-family: "Times New Roman", Georgia, Verdana, serif;
+    font-size: 1.618rem;
+    line-height: 1.618em;
+    font-weight: 800;
+}
+
+.product .product-description button {
+	background-color: hsl(98,60%,50%);
+	background-image:linear-gradient(to top, hsl(98,60%,50%), hsl(98,60%,35%));
+	text-decoration: none;
+	text-align: center;
+    color: white;
+	font-family: helvetica;
+	cursor: pointer;
+	margin: 20px 20px;
+	border:solid 1px hsl(98,60%,40%);
+    padding: 10px 20px;
+	border-radius: 23px;
+	box-shadow:inset 0 1px 0 hsl(98,60%,75%);
+}
+
+.product .product-description button:hover {
+	border: 1px solid hsl(98,60%,95%);
+	background-color: hsl(98,60%,95%);
+}
+
+.footer h1 {
+	margin-bottom: 30px;
+}
+
+/* END OF PRODUCT COMPONENT */
+
+/* IMAGE COMPONENT */
+
+.image-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+	padding: 30px;
+}
+
+.image {
+    flex: 0 0 40%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.image .image-description {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+	padding: 20px;
+}
+
+.image .image-description h3 {
+    color: hsl(229,45%,36%);
+	text-align: center;
+    font-family: "Times New Roman", Georgia, Verdana, serif;
+    font-size: 1.618rem;
+    line-height: 1.618em;
+    font-weight: 800;
+}
+
+/* END OF IMAGE COMPONENT */
+
+/* TOP BUTTON COMPONENT */
+
+.top-wrapper {
+	display: flex;
+	flow-flex: row;
+	justify-content: flex-end;
+	align-content: flex-end;
+	align-items: flex-end;
+}
+
+.top-wrapper .top-button {
+	display: flex;
+	flow-flex: row;
+	justify-content: flex-end;
+	align-content: flex-end;
+	align-items: flex-end;
+}
+
+.top-button button {
+	border: 1px solid hsl(0,100%,50%);
+	border-radius: 4px;
+	background-color: hsl(0,100%,50%);
+	color: white;
+	font-size: 14px;
+	font-family: helvetica;
+	width: 50px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.top-button button:hover {
+	border: 1px solid hsl(0,100%,75%);
+	background-color: hsl(0,100%,75%);
+}
+
+/* END OF TOP BUTTON COMPONENT */
+
+/* Footer */
+.footer {
+	background-color: #8974BE;
+    color: #fafafa;
+}
+
+@media screen and (min-width: 768px){
+    .footer {
+        display: flex;
+        flex-flow: row wrap;
+        height: 400px;
+    }
+
+	.Top{
+        width: 100%;
+        height: 50px;
+        text-align: center;
+        margin-top: 1%;
+    }
+    
+    .time{
+        width: 30%;
+        text-align: center;
+    }
+
+    table{
+        margin-left: 10%;
+    }
+    
+    .Center{
+        width: 40%;
+        padding-top: 200px;
+        text-align: center;
+        align-content: stretch;
+        align-items: stretch;
+    }
+    
+    .Copyright{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: stretch;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .Right{
+        width: 30%;
+    }
+    
+    .Right p{
+        margin-left: 25%;
+    }
+
+    .footer table tr th,
+    .footer table tr td {
+        padding-right: 0.5rem;
+        text-align: left;
+    }
+    
+    .Watermark {
+        display: flex;
+        height: 100px;
+        background-color: #C0C0C0;
+        color: #000000;
+        border-color: #707070;
+        border-width: thin;
+    }
+    
+    .Watermark h3 {
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-top: 3%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .footer {
+        display: flex;
+        flex-flow: column;
+    }
+
+	.Top{
+        order: 1;
+        width: 100%;
+        margin-top: 1%;
+    }
+
+    .Top h3{
+        margin-left: 40%;
+    }
+
+    .Right{
+        order: 2;
+        margin-left: 25%;
+    }
+
+    .ContactFoot {
+        margin-left: 10%;
+    }
+    
+    .time{
+        order: 3;
+        padding-left: 32%;
+        padding-bottom: 3%;
+    }
+    
+    .Center{
+        order: 4;
+        padding-left: 2%;
+        text-align: center;
+        align-content: stretch;
+        align-items: stretch;
+    }
+    
+    .Copyright{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: stretch;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .footer table tr th,
+    .footer table tr td {
+        padding-right: 0.5rem;
+        text-align: left;
+    }
+    
+    .Watermark {
+        display: flex;
+        height: 100px;
+        background-color: #C0C0C0;
+        color: #000000;
+        border-color: #707070;
+        border-width: thin;
+    }
+    
+    .Watermark h3 {
+        margin-left: 19%;
+        margin-top: 5%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .footer {
+        display: flex;
+        flex-flow: column;
+        font-size: 10px;
+    }
+
+	.Top{
+        order: 1;
+        width: 100%;
+        margin-top: 1%;
+    }
+
+    .Top h3{
+        margin-left: 40%;
+    }
+
+    .Right{
+        order: 2;
+        margin-left: 25%;
+    }
+
+    .ContactFoot {
+        margin-left: 10%;
+    }
+
+    .ContactFoot img {
+        max-width: auto;
+        max-height: auto;
+    }
+    
+    .time{
+        order: 3;
+        padding-left: 32%;
+        padding-bottom: 3%;
+    }
+    
+    .Center{
+        order: 4;
+        padding-left: 2%;
+        text-align: center;
+        align-content: stretch;
+        align-items: stretch;
+    }
+    
+    .Copyright{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: stretch;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .footer table tr th,
+    .footer table tr td {
+        padding-right: 0.5rem;
+        text-align: left;
+    }
+    
+    .Watermark {
+        display: flex;
+        height: 50px;
+        font-size: 10px;
+        background-color: #C0C0C0;
+        color: #000000;
+        border-color: #707070;
+        border-width: thin;
+    }
+    
+    .Watermark h3 {
+        margin-left: 19%;
+        margin-top: 5%;
+    }
+}

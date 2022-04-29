@@ -1,0 +1,684 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="template, HTML, CSS, JS, tutorial" name="keywords">
+    <meta content="This is a tutorial for how to create a basic HTML, CSS and JS website" name="description">
+    <meta content="Carlos Cucalon" name="author">
+    <title>Carousel - Rotating Banner | CodeTechTalk</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/42d4c8ae08.js">
+    </script>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&family=PT+Mono&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+/* http://www.colorbox.io/#steps=5#hue_start=31#hue_end=20#hue_curve=easeInQuad#sat_start=69#sat_end=90#sat_curve=easeOutQuad#sat_rate=130#lum_start=94#lum_end=75#lum_curve=easeOutQuad#minor_steps_map=0 */
+
+*, :before, :after {
+    box-sizing: border-box;
+    position: relative;
+}
+
+html {
+    /* Comment */
+    font-size: clamp(16px, 1rem + 0.25vw, 2.618vw); /* clamp(min, variable, max); */
+}
+
+body {
+    /* Zero out the margin and padding */
+    margin: 0;
+    padding: 0;
+    /*
+        margin values:
+        1 value = value applied to all sides
+        2 values = 1st value is applied to top and bottom and 2nd value is applied to the left and right
+        3 values = 1st value is applied to the top, the 2nd value is applied to the left and right, and the 3rd value is applied to the bottom
+        4 values = 1st value is applied to the top, the 2nd value is applied to the right, the 3rd value is applied to the bottom and the 4th value is applied to the left (applies values clockwise starting from the top) (T, R, B, L)
+    */
+    font-size: 1em; /* 1 * html font size  */
+    line-height: 1.618em; /* 1.618 * font size of current element */
+    color: #333333;
+    font-family: 'Open Sans', 'Arial', 'Helvetica', sans-serif;
+    font-weight: 400;
+}
+
+/* Grid System */
+/* div[class$="-1"]{ background-color: #FCA4E7; }
+div[class$="-2"]{ background-color: #F97EDD; }
+div[class$="-3"]{ background-color: #F55DD4; }
+div[class$="-4"]{ background-color: #F140CD; }
+div[class$="-5"]{ background-color: #EB27C8; }
+div[class$="-6"]{ background-color: #E413C3; }
+div[class$="-7"]{ background-color: #DB04C0; }
+div[class$="-8"]{ background-color: #D000BD; }
+div[class$="-9"]{ background-color: #C400BA; }
+div[class$="-10"]{ background-color: #B600B5; }
+div[class$="-11"]{ background-color: #A100A7; }
+div[class$="-12"]{ background-color: #8C0097; } 
+.container { background-color: #FCA4E7; }
+.container-fluid { background-color: #F97EDD; }*/
+
+.container,
+.container-fluid {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.618rem;
+}
+
+@media screen and (min-width: 576px){ .container { max-width: 576px; } }
+@media screen and (min-width: 768px){ .container { max-width: 768px; } }
+@media screen and (min-width: 992px){ .container { max-width: 992px; } }
+@media screen and (min-width: 1200px){ .container { max-width: 1200px; } }
+
+.row {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    margin-bottom: 1.618rem;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+.col-7, .col-8, .col-9, .col-10, .col-11, .col-12,
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6,
+.col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12,
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6,
+.col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12,
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6,
+.col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
+.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6,
+.col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12,
+.col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6,
+.col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.col-1 {
+    flex: 0 0 calc((100% / 12) * 1); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 1);
+}
+
+.col-2 {
+    flex: 0 0 calc((100% / 12) * 2); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 2);
+}
+
+.col-3 {
+    flex: 0 0 calc((100% / 12) * 3); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 3);
+}
+
+.col-4 {
+    flex: 0 0 calc((100% / 12) * 4); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 4);
+}
+
+.col-5 {
+    flex: 0 0 calc((100% / 12) * 5); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 5);
+}
+
+.col-6 {
+    flex: 0 0 calc((100% / 12) * 6); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 6);
+}
+
+.col-7 {
+    flex: 0 0 calc((100% / 12) * 7); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 7);
+}
+
+.col-8 {
+    flex: 0 0 calc((100% / 12) * 8); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 8);
+}
+
+.col-9 {
+    flex: 0 0 calc((100% / 12) * 9); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 9);
+}
+
+.col-10 {
+    flex: 0 0 calc((100% / 12) * 10); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 10);
+}
+
+.col-11 {
+    flex: 0 0 calc((100% / 12) * 11); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 11);
+}
+
+.col-12 {
+    flex: 0 0 calc((100% / 12) * 12); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 12);
+}
+
+/* Extra small */
+.col-xs-1 {
+    flex: 0 0 calc((100% / 12) * 1); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 1);
+}
+
+.col-xs-2 {
+    flex: 0 0 calc((100% / 12) * 2); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 2);
+}
+
+.col-xs-3 {
+    flex: 0 0 calc((100% / 12) * 3); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 3);
+}
+
+.col-xs-4 {
+    flex: 0 0 calc((100% / 12) * 4); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 4);
+}
+
+.col-xs-5 {
+    flex: 0 0 calc((100% / 12) * 5); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 5);
+}
+
+.col-xs-6 {
+    flex: 0 0 calc((100% / 12) * 6); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 6);
+}
+
+.col-xs-7 {
+    flex: 0 0 calc((100% / 12) * 7); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 7);
+}
+
+.col-xs-8 {
+    flex: 0 0 calc((100% / 12) * 8); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 8);
+}
+
+.col-xs-9 {
+    flex: 0 0 calc((100% / 12) * 9); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 9);
+}
+
+.col-xs-10 {
+    flex: 0 0 calc((100% / 12) * 10); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 10);
+}
+
+.col-xs-11 {
+    flex: 0 0 calc((100% / 12) * 11); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 11);
+}
+
+.col-xs-12 {
+    flex: 0 0 calc((100% / 12) * 12); /* 100% / 12 = 8.33333333% */
+    max-width: calc((100% / 12) * 12);
+}
+
+/* Small */
+@media screen and (min-width: 576px){
+
+    .col-sm-1 {
+        flex: 0 0 calc((100% / 12) * 1); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 1);
+    }
+    
+    .col-sm-2 {
+        flex: 0 0 calc((100% / 12) * 2); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 2);
+    }
+    
+    .col-sm-3 {
+        flex: 0 0 calc((100% / 12) * 3); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 3);
+    }
+    
+    .col-sm-4 {
+        flex: 0 0 calc((100% / 12) * 4); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 4);
+    }
+    
+    .col-sm-5 {
+        flex: 0 0 calc((100% / 12) * 5); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 5);
+    }
+    
+    .col-sm-6 {
+        flex: 0 0 calc((100% / 12) * 6); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 6);
+    }
+    
+    .col-sm-7 {
+        flex: 0 0 calc((100% / 12) * 7); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 7);
+    }
+    
+    .col-sm-8 {
+        flex: 0 0 calc((100% / 12) * 8); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 8);
+    }
+    
+    .col-sm-9 {
+        flex: 0 0 calc((100% / 12) * 9); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 9);
+    }
+    
+    .col-sm-10 {
+        flex: 0 0 calc((100% / 12) * 10); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 10);
+    }
+    
+    .col-sm-11 {
+        flex: 0 0 calc((100% / 12) * 11); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 11);
+    }
+    
+    .col-sm-12 {
+        flex: 0 0 calc((100% / 12) * 12); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 12);
+    }
+
+}
+
+/* Medium */
+@media screen and (min-width: 768px){
+
+    .col-md-1 {
+        flex: 0 0 calc((100% / 12) * 1); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 1);
+    }
+    
+    .col-md-2 {
+        flex: 0 0 calc((100% / 12) * 2); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 2);
+    }
+    
+    .col-md-3 {
+        flex: 0 0 calc((100% / 12) * 3); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 3);
+    }
+    
+    .col-md-4 {
+        flex: 0 0 calc((100% / 12) * 4); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 4);
+    }
+    
+    .col-md-5 {
+        flex: 0 0 calc((100% / 12) * 5); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 5);
+    }
+    
+    .col-md-6 {
+        flex: 0 0 calc((100% / 12) * 6); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 6);
+    }
+    
+    .col-md-7 {
+        flex: 0 0 calc((100% / 12) * 7); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 7);
+    }
+    
+    .col-md-8 {
+        flex: 0 0 calc((100% / 12) * 8); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 8);
+    }
+    
+    .col-md-9 {
+        flex: 0 0 calc((100% / 12) * 9); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 9);
+    }
+    
+    .col-md-10 {
+        flex: 0 0 calc((100% / 12) * 10); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 10);
+    }
+    
+    .col-md-11 {
+        flex: 0 0 calc((100% / 12) * 11); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 11);
+    }
+    
+    .col-md-12 {
+        flex: 0 0 calc((100% / 12) * 12); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 12);
+    }
+
+}
+
+/* Large */
+@media screen and (min-width: 992px){
+
+    .col-lg-1 {
+        flex: 0 0 calc((100% / 12) * 1); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 1);
+    }
+    
+    .col-lg-2 {
+        flex: 0 0 calc((100% / 12) * 2); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 2);
+    }
+    
+    .col-lg-3 {
+        flex: 0 0 calc((100% / 12) * 3); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 3);
+    }
+    
+    .col-lg-4 {
+        flex: 0 0 calc((100% / 12) * 4); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 4);
+    }
+    
+    .col-lg-5 {
+        flex: 0 0 calc((100% / 12) * 5); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 5);
+    }
+    
+    .col-lg-6 {
+        flex: 0 0 calc((100% / 12) * 6); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 6);
+    }
+    
+    .col-lg-7 {
+        flex: 0 0 calc((100% / 12) * 7); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 7);
+    }
+    
+    .col-lg-8 {
+        flex: 0 0 calc((100% / 12) * 8); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 8);
+    }
+    
+    .col-lg-9 {
+        flex: 0 0 calc((100% / 12) * 9); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 9);
+    }
+    
+    .col-lg-10 {
+        flex: 0 0 calc((100% / 12) * 10); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 10);
+    }
+    
+    .col-lg-11 {
+        flex: 0 0 calc((100% / 12) * 11); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 11);
+    }
+    
+    .col-lg-12 {
+        flex: 0 0 calc((100% / 12) * 12); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 12);
+    }
+
+}
+
+/* Extra Large */
+@media screen and (min-width: 1200px){
+
+    .col-xl-1 {
+        flex: 0 0 calc((100% / 12) * 1); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 1);
+    }
+    
+    .col-xl-2 {
+        flex: 0 0 calc((100% / 12) * 2); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 2);
+    }
+    
+    .col-xl-3 {
+        flex: 0 0 calc((100% / 12) * 3); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 3);
+    }
+    
+    .col-xl-4 {
+        flex: 0 0 calc((100% / 12) * 4); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 4);
+    }
+    
+    .col-xl-5 {
+        flex: 0 0 calc((100% / 12) * 5); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 5);
+    }
+    
+    .col-xl-6 {
+        flex: 0 0 calc((100% / 12) * 6); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 6);
+    }
+    
+    .col-xl-7 {
+        flex: 0 0 calc((100% / 12) * 7); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 7);
+    }
+    
+    .col-xl-8 {
+        flex: 0 0 calc((100% / 12) * 8); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 8);
+    }
+    
+    .col-xl-9 {
+        flex: 0 0 calc((100% / 12) * 9); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 9);
+    }
+    
+    .col-xl-10 {
+        flex: 0 0 calc((100% / 12) * 10); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 10);
+    }
+    
+    .col-xl-11 {
+        flex: 0 0 calc((100% / 12) * 11); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 11);
+    }
+    
+    .col-xl-12 {
+        flex: 0 0 calc((100% / 12) * 12); /* 100% / 12 = 8.33333333% */
+        max-width: calc((100% / 12) * 12);
+    }
+
+}
+
+/* End of Grid System */
+
+/* Carousel Styles */
+.carousel {
+    position: relative;
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-item {
+    position: relative;
+    display: none;
+    float: left;
+    width: 100%;
+    margin-right: -100%;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease-in-out;
+    padding: 2rem;
+    background-color: #f7f7f7;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+button[class^=carousel-control] {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    padding: 0;
+    color: blue;
+    background-color: transparent;
+    border: 0;
+    text-align: center;
+    opacity: 0.5;
+    transition: opacity 0.15s ease;
+    font-size: 1rem;
+}
+
+.carousel-control-next {
+    right: 0;
+}
+
+.carousel-control-prev {
+    left: 0;
+}
+
+button[class^=carousel-control]:hover {
+    color: pink;
+    outline: 0;
+    opacity: 0.9;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    font-size:0;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.carousel-indicators {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-right: 15%;
+    margin-bottom: 1rem;
+    margin-left: 15%;
+    list-style: none;
+}
+
+.carousel-indicators > .carousel-indicator {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    font-size: 0;
+    width: 30px;
+    height: 3px;
+    padding: 0;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -9999px;
+    cursor: pointer;
+    border: 0;
+    background-color: #cacaca;
+    background-clip: padding-box;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: 0.5;
+    transition: opacity 0.6s ease;
+}
+
+.carousel-indicators > .carousel-indicator.active {
+    opacity: 1;
+    background-color: #000000;
+}
+/* End of Carousel Styles */
+
+/* Updated Carousel Images */
+
+
+.slideshow {
+	flex: 0 0 100%;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
+	padding-top: 50vh;
+}
+
+.slideshow img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	object-fit: cover;
+	object-position: center;
+}
+
+/* End of Updated Carousel Images */
+
+</style>
+	
+</head>
+<body>
+
+<div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Carousel - Rotating Banner</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Simple carousel</h2>
+          <div class="carousel slide" id="carouselExample1">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+			  <div class="slideshow">
+			   <img src="img/small-plants.jpg" alt="Mansfield Gardens | Flowers | Beautiful" />
+			   </div>
+                <h3>Title 1</h3>
+                <p>Some text goes here.</p>
+              </div>
+              <div class="carousel-item">
+			    <div class="slideshow">
+			   <img src="img/flowers.jpg" alt="Mansfield Gardens | Flowers | Beautiful" />
+			   </div>
+                <h3>Title 2</h3>
+                <p>Some text goes here.</p>
+              </div>
+              <div class="carousel-item">
+			      <div class="slideshow">
+			   <img src="img/flowers2.jpg" alt="Mansfield Gardens | Flowers | Beautiful" />
+			   </div>
+                <h3>Title 3</h3>
+                <p>Some text goes here.</p>
+              </div>
+            </div>
+            <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExample1" type="button">
+              <span aria-hidden="true" class="carousel-control-prev-icon"><i class="fa-solid fa-angle-left"></i></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExample1" type="button">
+              <span class="visually-hidden">Next</span>
+              <span aria-hidden="true" class="carousel-control-next-icon"><i class="fa-solid fa-angle-right"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+<script src="js/app.js">
+  </script>
+</body>
+</html>

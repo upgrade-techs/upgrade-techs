@@ -1,0 +1,457 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <meta name="keywords" content="keyword">
+          <meta name="description" content="Should be no more than 120 characters.">
+          <meta name="author" content="Upgrade Techs">
+  
+  <title>Contact</title>
+ 
+ <style>
+ 
+ /* Title */
+
+.title {
+  width: 100%;
+  text-transform: uppercase;
+  color: #222222;
+  font-family: sans-serif, arial, helvetica, roboto;
+  text-align: center;
+  padding: 0 0 1rem;
+}
+
+/* Title */
+ 
+ /* Contact Form */
+form {
+  /* I don't have anything on this one */
+  width: 100%;
+}
+
+.form-group {
+	width: 100%;
+}
+
+.form-group label {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 0.5rem;
+}
+
+.form-group .form-control {
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+	padding: 1rem;
+	width: 100%;
+	border: 1px solid black;
+	border-radius: 0.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.form-group label {
+padding: 0.5rem;
+}
+
+.column .form-control:last-of-type {
+  margin-bottom: 0;
+}
+
+textarea {
+	height: 100%;
+	font-family: Arial;
+}
+
+.form-group input[type="submit"] {
+	background-color: #222222;
+	color: #ffffff;
+	padding: 0.5rem 1rem;
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	width: 15%;
+	margin: 0 auto;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+	cursor: pointer;
+}
+
+/* End of Contact Form */
+
+/* Two Column layout */
+
+.two-column-layout {
+	flex: 0 0 calc(50% - 2rem);
+	-webkit-flex: 0 0 calc(50% - 2rem);
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-content: flex-start;
+	align-items: flex-start;
+}
+
+.two-column-layout .column {
+	flex: 0 0 calc(50% - 2rem);
+	-webkit-flex: 0 0 calc(50% - 2rem);
+}
+
+/* End of Two Column Layout */
+
+@media screen and (max-width: 768px) {
+
+.two-column-layout {
+display: block;
+}
+
+form {
+width: 100%;
+}
+
+}
+
+/* Footer */
+.footer {
+	background-color: #8974BE;
+    color: #fafafa;
+}
+
+@media screen and (min-width: 768px){
+    .footer {
+        display: flex;
+        flex-flow: row wrap;
+        height: 400px;
+    }
+
+	.Top{
+        width: 100%;
+        height: 50px;
+        text-align: center;
+        margin-top: 1%;
+    }
+    
+    .time{
+        width: 30%;
+        text-align: center;
+    }
+
+    table{
+        margin-left: 10%;
+    }
+    
+    .Center{
+        width: 40%;
+        padding-top: 200px;
+        text-align: center;
+        align-content: stretch;
+        align-items: stretch;
+    }
+    
+    .Copyright{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: stretch;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .Right{
+        width: 30%;
+    }
+    
+    .Right p{
+        margin-left: 25%;
+    }
+
+    .footer table tr th,
+    .footer table tr td {
+        padding-right: 0.5rem;
+        text-align: left;
+    }
+    
+    .Watermark {
+        display: flex;
+        height: 100px;
+        background-color: #C0C0C0;
+        color: #000000;
+        border-color: #707070;
+        border-width: thin;
+    }
+    
+    .Watermark h3 {
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-top: 3%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .footer {
+        display: flex;
+        flex-flow: column;
+    }
+
+	.Top{
+        order: 1;
+        width: 100%;
+        margin-top: 1%;
+    }
+
+    .Top h3{
+        margin-left: 40%;
+    }
+
+    .Right{
+        order: 2;
+        margin-left: 25%;
+    }
+
+    .ContactFoot {
+        margin-left: 10%;
+    }
+    
+    .time{
+        order: 3;
+        padding-left: 32%;
+        padding-bottom: 3%;
+    }
+    
+    .Center{
+        order: 4;
+        padding-left: 2%;
+        text-align: center;
+        align-content: stretch;
+        align-items: stretch;
+    }
+    
+    .Copyright{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: stretch;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .footer table tr th,
+    .footer table tr td {
+        padding-right: 0.5rem;
+        text-align: left;
+    }
+    
+    .Watermark {
+        display: flex;
+        height: 100px;
+        background-color: #C0C0C0;
+        color: #000000;
+        border-color: #707070;
+        border-width: thin;
+    }
+    
+    .Watermark h3 {
+        margin-left: 19%;
+        margin-top: 5%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .footer {
+        display: flex;
+        flex-flow: column;
+        font-size: 10px;
+    }
+
+	.Top{
+        order: 1;
+        width: 100%;
+        margin-top: 1%;
+    }
+
+    .Top h3{
+        margin-left: 40%;
+    }
+
+    .Right{
+        order: 2;
+        margin-left: 25%;
+    }
+
+    .ContactFoot {
+        margin-left: 10%;
+    }
+
+    .ContactFoot img {
+        max-width: auto;
+        max-height: auto;
+    }
+    
+    .time{
+        order: 3;
+        padding-left: 32%;
+        padding-bottom: 3%;
+    }
+    
+    .Center{
+        order: 4;
+        padding-left: 2%;
+        text-align: center;
+        align-content: stretch;
+        align-items: stretch;
+    }
+    
+    .Copyright{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: stretch;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .footer table tr th,
+    .footer table tr td {
+        padding-right: 0.5rem;
+        text-align: left;
+    }
+    
+    .Watermark {
+        display: flex;
+        height: 50px;
+        font-size: 10px;
+        background-color: #C0C0C0;
+        color: #000000;
+        border-color: #707070;
+        border-width: thin;
+    }
+    
+    .Watermark h3 {
+        margin-left: 19%;
+        margin-top: 5%;
+    }
+}
+
+
+</style>
+
+<body>
+
+<!--CONTACT FORM-->   
+   <div id="contact" class="container highlighted">
+        <h2 class="title">CONTACT US TODAY!</h2>
+        <div class="contact-form">
+          <form class="two-column-layout">
+            <div class="column">
+              <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input id="full-name" placeholder="First and Last Name" class="form-control" type="text" />
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail Address</label>
+                <input id="email" placeholder="user@domain.com" class="form-control" type="text" />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input id="subject" placeholder="Reserve My Purchase" class="form-control" type="text" />
+              </div>
+            </div>
+            <div class="column">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Reservations Message" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Submit" class="form-control" />
+            </div>
+          </form>
+        </div>
+      </div>
+<!--END OF CONTACT FORM-->
+
+<!--FOOTER-->
+
+        <div class="footer">
+            <div class="Top">
+                <h3>MANSFIELDGARDENS.COM</h3>
+            </div>
+            <div class="time">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Day</th>
+                      <th>Open</th>
+                      <th>Close</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Monday</td>
+                      <td>08:00 a.m.</td>
+                      <td>06:30 p.m.</td>
+                    </tr>
+                    <tr>
+                      <td>Tuesday</td>
+                      <td>08:00 a.m.</td>
+                      <td>06:30 p.m.</td>
+                    </tr>
+                    <tr>
+                      <td>Wednesday</td>
+                      <td>08:00 a.m.</td>
+                      <td>06:30 p.m.</td>
+                    </tr>
+                    <tr>
+                      <td>Thursday</td>
+                      <td>08:00 a.m.</td>
+                      <td>06:30 p.m.</td>
+                    </tr>
+                    <tr>
+                      <td>Friday</td>
+                      <td>08:00 a.m.</td>
+                      <td>06:30 p.m.</td>
+                    </tr>
+                    <tr>
+                      <td>Saturday</td>
+                      <td>09:00 a.m.</td>
+                      <td>05:00 p.m.</td>
+                    </tr>
+                    <tr>
+                      <td>Sunday</td>
+                      <td>10:00 a.m.</td>
+                      <td>4:00 p.m.</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div class="Center">
+                <div class="SocialMedia">
+                    <img src="twitter.png.svg">
+                    <img src="Facebook.png">
+                    <img src="insta.png">
+                    <img src="Snapchat.png">
+                </div>
+                <div class="Copyright">
+                    <p class="copyright">© 2022 Mansfield Garden</p>
+                    <p class="accessstatement">Accessibility Statement</p>
+                </div>
+            </div>
+            <div class="Right">
+                <p class="FooterNav"> HOME   PRODUCTS   SERVICES  ABOUT  CONTACT</p>
+                <p class="ContactFoot">
+                    815 N. Main ST. Mansfield, TX 76063<br />
+                    Phone: 817-522-2019<br />
+                    Email: info@mansfieldgardens.com
+                </p>
+            </div>
+        </div>
+        <div class="Watermark">
+            <h3>Upgrade Techs | CTEC 3350 | For Academic Use Only</h3>
+        </div>
+		
+		<!--END OF FOOTER-->
+
+</body>
+</html>
